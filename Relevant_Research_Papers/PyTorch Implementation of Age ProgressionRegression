@@ -1,0 +1,4 @@
+This paper gives practical insights into the face age progression implementation of http://web.eecs.utk.edu/~zzhang61/docs/papers/2017_CVPR_Age.pdf.
+Document is able to clearly illustrate the architecture(conditional variational auto-encoder) into reality.
+
+https://www.overleaf.com/project/5b926d4e6c50f5584ef095b4
