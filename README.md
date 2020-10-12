@@ -1,6 +1,6 @@
 # Minor-Project-Face Age Progression
 
-Introduction
+#Introduction
 
 Age progression is the process of aesthetically rendering a given face
 image to present the effects of aging. It is often used in the entertainment
