@@ -1,6 +1,6 @@
 # Minor-Project-Face Age Progression
 
-1. Introduction
+## 1. Introduction
 
 Age progression is the process of aesthetically rendering a given face image to present the effects of aging. It is often used in the entertainment 
 industry and forensics, e.g., forecasting facial appearances of young
@@ -17,7 +17,7 @@ were mainly based on the skin’s anatomical structure and they
 mechanically simulated the profile growth and facial muscle changes w.r.t.
 the elapsed time.
 
-2. Motivation
+## 2. Motivation
 
 One of the primary motivations behind doing this project was to undertake
 a challenging project in the vast and immensely popular field of deep
