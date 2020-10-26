@@ -1,0 +1,25 @@
+{
+  "name": "minor-project",
+  "version": "1.0.0",
+  "description": "Face Age Progression Model",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SinghJai13/Minor-Project.git"
+  },
+  "author": "18103084, 18103078, 18103070, 18103071",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SinghJai13/Minor-Project/issues"
+  },
+  "homepage": "https://github.com/SinghJai13/Minor-Project#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.10"
+  }
+}
