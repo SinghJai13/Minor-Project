@@ -1,20 +1,16 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const app = express();
-const db = require('./config/mongoose');
+
 const port = 8000;
-// const expressLayouts = require('express-ejs-layouts');
 
 app.use(express.static('./assets'));
-// app.use(expressLayouts);
-// app.set('layout extractStyles',true);
-// app.set('layout extractScripts',true);
 
 app.use(express.urlencoded());
-CronJob.start();
+
 app.use(cookieParser());
 
-// telling app to use routes
+//telling app to use routes
 app.use('/', require('./routes/index'));
 
 //setting view engine

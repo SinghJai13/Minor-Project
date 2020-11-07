@@ -7,8 +7,8 @@
 body
 {
   overflow-x: hidden;
-  font-family: font-family: 'Lato', sans-serif;
-  color: #505962
+  font-family: font-family, 'Lato', sans-serif;
+  color : #505962 ;
 }
 /*----------nav*/
 .offset:before

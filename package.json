@@ -1,9 +1,10 @@
 {
-  "name": "minor-project",
+  "name": "face_age_progression",
   "version": "1.0.0",
   "description": "Face Age Progression Model",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +20,6 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.10.10"
+    "express": "^4.17.1"
   }
 }
