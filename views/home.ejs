@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Face Age Progression</title>
+	<title>Minor Project Face Age Progression</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style_index.css">
 	<link rel="stylesheet" href="css/fixed.css">
@@ -17,7 +17,7 @@
 	
 	<!---nav -->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="#home"><img src="/images/logo.png"></a>
+		<a class="navbar-brand" href="#home"><img src="images/logo.png"></a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"  data-target="#navbarResponsive"  >
 			<span class="navbar-toggler-icon"></span>
@@ -27,17 +27,17 @@
 
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"  >
-					<a href="#home">home</a>
+					<a href="#home" style="color:white">home</a>
 				</li>
 				<li class="nav-item"  >
-					<a href="#description">Description</a>
+					<a href="#description" style="color:white">Description</a>
 				</li>
 				<li class="nav-item"  >
-					<a href="#upload">Upload</a>
+					<a href="#upload" style="color:white">Upload</a>
 				</li>
 				
 				<li class="nav-item"  >
-					<a href="#built">Built By</a>
+					<a href="#built" style="color:white">Built By</a>
 				</li>
 			</ul>
 			
@@ -52,7 +52,7 @@
 
 		<div class="home-wrap">
 			<div class="home-inner">
-				<img src="/images/land_page.png" width="100%"></a>
+				<img src="images/age.jpg" width="100%" style="margin-top: 60px"></a>   <!-- image top margin-->
 			</div>
 			
 		</div>
@@ -70,7 +70,7 @@
 
 <div id="description" class="offset"></div>
 
-<div class="jumbotron"> 
+<div class="jumbotron" style="margin-bottom: 0">   <!--  new margin added -->
 	<div class="narrow">
 		<div class="col-12 text-center">
 			<h1 class="heading">Minor Project : Face Age Progression</h1>
@@ -93,20 +93,37 @@
 <!-- start ##upload section-->
 
 
-<div id="upload" class="offset"></div>
+<div id="upload" class="upload">
 
+	<div class="fixed-background">
+		<div class="upr">
+			 	<div style="width: 100">
+					<h3 class="heading-upload">UPLOAD IMAGE</h3>
+					
+			
+				</div>			
+		</div>
+			            
+		<div class="preview">
+				<div class=" preview-img" style="margin-top: 10px;">
+					<%- include('partials/uploadImage'); %>
+				</div>
 
-
-<div class="fixed-background">
-	<div class="row dark  text-center">
-				<div class="col-12">
-			<h3 class="">UPLOAD IMAGE</h3>
-			<div class="heading-underline"></div>
-		
-		</div>			
+	<!-- static photo for instruction -->
+			<div class="card-demo">
+				<div class="card-body-demo">
+				<h5 class="card-title-demo">Upload a photograph of yourself facing the camera.</h5>
+				
+				</div>
+				<img class="card-img-bottom-demo" src="images/demo.jpg" alt="DEMO">
+			</div>
+		</div>
 	</div>
-	<!--end row--->
 </div>
+
+
+
+
 <!-- end upload section-->
 
 
@@ -127,9 +144,9 @@
 				<div class="col-md-3">
 					<div class="card" style="width: 17rem;">
 
-  						<img class="card-img-top" src="images/eco.png" alt="Card image cap">
+  						<img class="card-img-top" src="images/aayush.jpg" alt="Card image cap">
   						<div class="card-body">
-    						<h5 class="card-title">Nikhil Mahajan</h5>
+    						<h5 class="card-title">Nikhal Mahajan</h5>
 
     						<p class="card-text">Btech Computer Science</p>
     					 	<a href="#built" class="btn btn-primary">18103070</a>
@@ -140,7 +157,7 @@
 				<div class="col-md-3">
 					<div class="card" style="width: 17rem;">
 
-  						<img class="card-img-top" src="images/eco.png" alt="Card image cap">
+  						<img class="card-img-top" src="images/aayush.jpg" alt="Card image cap">
   						<div class="card-body">
     						<h5 class="card-title">Jaideep Singh</h5>
 
@@ -153,7 +170,7 @@
 				<div class="col-md-3">
 					<div class="card" style="width: 17rem;">
 
-  						<img class="card-img-top" src="images/eco.png" alt="Card image cap">
+  						<img class="card-img-top" src="images/aayush.jpg" alt="Card image cap">
   						<div class="card-body">
     						<h5 class="card-title">Aayush Garg</h5>
 
@@ -166,7 +183,7 @@
 				<div class="col-md-3">
 					<div class="card" style="width: 17rem;">
 
-  						<img class="card-img-top" src="images/eco.png" alt="Card image cap">
+  						<img class="card-img-top" src="images/aayush.jpg" alt="Card image cap">
   						<div class="card-body">
     						<h5 class="card-title">Gaurang Gupta</h5>
 

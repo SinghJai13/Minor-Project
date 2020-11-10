@@ -14,7 +14,7 @@ body
 .offset:before
 {
   display: block;
-  content: "";
+  
   height: 4rem;
   margin-top: 4rem;
 }
@@ -24,7 +24,7 @@ body
   font-weight: 700;
   font-size: .9rem; 
   letter-spacing: .1rem;
-  background: rgba(0,0,0,0.6)!important;
+  background: rgba(0,0,0,1.0);
 }
 .navbar-brand
 {
@@ -38,7 +38,7 @@ body
 
 .navbar-dark .navbar-nav .nav-link
 {
-  color: white;
+ 
   padding-top: .8rem;
 }
 
@@ -47,7 +47,7 @@ body
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover
 {
-  color: #1ebba3;
+  color: #FFFFFF;
 }
 /*-----------landing page*/
 
@@ -89,8 +89,39 @@ body
 {
 
   padding: .6rem 1.3rem;
+  background-color: #008B8B;
+}
+/*new8*/
+.upload{
+ 
+  background-color: #FFC0CB;
+}
+.upload div{
   
 }
+.upr{
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #ccc;
+}
+.preview{
+  display: flex;
+   padding: 10px;
+  border: 2px solid #ccc;
+}
+
+.preview-img{
+flex: 1;
+ padding: 10px;
+  /* border: 1px solid #ccc; */
+}
+.card-demo{
+  flex: 1;
+   padding: 10px;
+  /* border: 1px solid #ccc; */
+
+}
+/*new8*/
 /*styling*/
 
 .narrow
@@ -104,4 +135,21 @@ body
 {
   font-size: 5 rem;
 }
+.image-preview{
+  width: 300px;
+  height:330px;  /*new*/
 
+
+  border: 2px solid #dddddd;
+  margin-top: 15px;
+  
+  display: flex;
+  align-items: center;;
+  justify-content: center;
+  font-weight: bold;
+  color: #a6a6a6;
+}
+.image-preview__image{
+  display: none;
+  width: 100%
+}
