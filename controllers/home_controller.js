@@ -11,7 +11,7 @@ module.exports.processing = function(req,res){
     
     // spawn new child process to call the python script
     const python = spawn('python', ['hello.py',req.body.age, req.body.gender, req.body.image]);
-    var data = req.body.gender;
+    // var data = req.body.gender;
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
         dataToSend = data.toString();
