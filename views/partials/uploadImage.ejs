@@ -1,46 +1,41 @@
 <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <link rel="stylesheet" href="/css/upload_Image.css">
 
-<form action="/process-image" method="POST"  >
+<form action="/process-image" method="POST" enctype="multipart/form-data">
   <div class="file-upload">
     <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-  <!-- ADDING DROPDOWNS -->
-  <div class="drop_downs">
-                
-              
-    <div class="drop_down_age">
-      <select name="age" id="list" required>
-        <option value="" disabled selected>Select Your Age Bracket</option>
-        <option value="0">0-10</option>
-        <option value="1">10-20</option>
-        <option value="2">20-30</option>
-        <option value="3">30-40</option>
-        <option value="4">40-50</option>
-        <option value="5">50-60</option>
-        <option value="6">60-70</option>
-        <option value="7">70-80</option>
-        <option value="8">80-90</option>
-        <option value="9">90-100</option>
-        
-      </select>
-    
+    <!-- ADDING DROPDOWNS -->
+    <div class="drop_downs">
+
+      <div class="drop_down_age">
+        <select name="age" id="list" required>
+          <option value="" disabled selected>Select Your Age Bracket</option>
+          <option value="0">0-10</option>
+          <option value="1">10-20</option>
+          <option value="2">20-30</option>
+          <option value="3">30-40</option>
+          <option value="4">40-50</option>
+          <option value="5">50-60</option>
+          <option value="6">60-70</option>
+          <option value="7">70-80</option>
+          <option value="8">80-90</option>
+          <option value="9">90-100</option>
+        </select>
+      </div>
       
+      <div class="gender">
+        <select name="gender" id ="gender" required>
+          <option value="" disabled selected>Gender</option>
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+        </select>
+      </div>
+
     </div>
-    
-    <div class="gender">
-      <select name="gender" id ="gender" required>
-        <option value="" disabled selected>Gender</option>
-        <option value="0">Male</option>
-        <option value="1">Female</option>
-        
-      </select>
-      
-    </div>
-  </div>
-  <!-- ENDING DROPDOWNS -->
+    <!-- ENDING DROPDOWNS -->
 
     <div class="image-upload-wrap">
-      <input name="image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+      <input name="myImage" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
       <div class="drag-text">
         <h3>Drag and drop a file or select add Image</h3>
       </div>

@@ -1,3 +1,5 @@
+const cookieParser = require("cookie-parser");
+
 function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -7,11 +9,12 @@ function readURL(input) {
   
         $(".file-upload-image").attr("src", e.target.result);
         $(".file-upload-content").show();
-  
+        console.log(e.target.result)
         $(".image-title").html(input.files[0].name);
       };
   
       reader.readAsDataURL(input.files[0]);
+      
       console.log(input.files[0])
     } else {
       removeUpload();
