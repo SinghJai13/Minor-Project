@@ -9,6 +9,6 @@ const upload = multer({
 
 router.get('/', homeController.home);
 // router.post('/up',homeController.up)
-// router.post('/process-image',upload.single("image_up"), homeController.processing);
-router.post('/process-image', upload.single('myImage'),homeController.photo);
+// router.post('/process-image', homeController.processing);
+router.post('/process-image', upload.single('myImage'),homeController.processing);
 module.exports = router;
