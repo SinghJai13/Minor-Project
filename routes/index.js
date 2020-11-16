@@ -4,7 +4,7 @@ const homeController = require('../controllers/home_controller');
 const multer = require("multer");
 
 const upload = multer({
-    dest: "./uploads/"
+    dest: "./Face_model/test"
 });
 
 router.get('/', homeController.home);

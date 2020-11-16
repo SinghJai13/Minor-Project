@@ -1,4 +1,6 @@
-const {spawn} = require('child_process');
+const {
+    spawn
+} = require('child_process');
 const db = require('../config/mongoose')
 const fs = require('fs');
 //Rendering home
@@ -11,7 +13,7 @@ module.exports.processing = function (req, res) {
     // spawn new child process to call the python script
     console.log(req.file.filename)
     const python = spawn('python', ['hello.py', req.body.age, req.body.gender, req.file.filename]);
-    
+
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
         dataToSend = data.toString();
@@ -20,8 +22,33 @@ module.exports.processing = function (req, res) {
     python.on('close', (code) => {
         console.log(`child process close all stdio with code ${code}`);
         // send data to browser
-        console.log(dataToSend)
+        console.log(dataToSend);
+
+        const python2 = spawn('python', ['./Face_model/main.py']);
+
+        python2.stdout.on('data', function (data) {
+            console.log('Pipe data from python script ...');
+            dataToSend = data.toString();
+        });
+
+        python2.on('exit', function (code) {
+            console.log("Exited with code " + code);
+        });
+
+        python2.stderr.on('data', (data) => {
+            //Here data is of type buffer
+            console.log(data.toString())
+        })
+
+        
+        python2.on('close', (code) => {
+            console.log(`child process close all stdio with code ${code}`);
+            // send data to browser
+            console.log(dataToSend)
+        });
+
     });
+
 }
 
 /* module.exports.photo = function (req, res) {
