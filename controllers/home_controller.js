@@ -1,4 +1,4 @@
-const spawn = require('child_process');
+const {spawn} = require('child_process');
 const db = require('../config/mongoose')
 const fs = require('fs');
 //Rendering home
@@ -8,10 +8,8 @@ module.exports.home = function (req, res) {
 
 //passing data to model
 module.exports.processing = function (req, res) {
-    console.log(req.body);
-    console.log(req.cookies.abc.name)
     // spawn new child process to call the python script
-    const python = spawn('python', ['hello.py', req.body.age, req.body.gender, req.body.image]);
+    const python = spawn('python', ['hello.py', req.body.age, req.body.gender]);
     // var data = req.body.gender;
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
@@ -35,7 +33,6 @@ module.exports.up = function (req, res) {
 
 
 module.exports.photo = function (req, res) {
-    console.log(req);
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString('base64');
     // Define a JSONobject for the image attributes for saving to database
@@ -44,15 +41,14 @@ module.exports.photo = function (req, res) {
         contentType: req.file.mimetype,
         image: new Buffer(encode_image, 'base64')
     };
-    console.log(finalImg);
-    // db.collection('quotes').insertOne(finalImg, (err, result) => {
-    //     console.log(result)
+   
+    db.collection('quotes').insertOne(finalImg, (err, result) => {
 
-    //     if (err) return console.log(err)
+        if (err) return console.log(err)
 
-    //     console.log('saved to database')
-    //     res.redirect('/')
+        console.log('saved to database')
+        res.redirect('/')
+    })
 
-
-    // })
+    
 }
