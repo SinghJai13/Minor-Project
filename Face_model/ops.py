@@ -119,6 +119,32 @@ def save_batch_images(
 
 
 
+def save_batch_images1(
+        batch_images,   # a batch of images
+        save_path,  # path to save the images
+        image_value_range=(-1, 1),   # value range of the input batch images
+        # size of the image matrix, number of images in each row and column
+        size_frame=[1, 1],
+        flag=0
+       
+):
+    
+    save_path = save_path[:-4]
 
+    # transform the pixcel value to 0~1
+    images = (batch_images - image_value_range[0]) / \
+        (image_value_range[-1] - image_value_range[0])
+  
+    img_h, img_w = batch_images.shape[1], batch_images.shape[2]
+    frame = np.zeros([img_h * 1, img_w * 1, 3])
+    x=0
+    if flag==0:
+        save_path = 'D:\\Downloads\\Projects_And_Stuff\\Websites\\Minor-Project\\assets\\male\\'
+    if flag ==1:
+        save_path = 'D:\\Downloads\\Projects_And_Stuff\\Websites\\Minor-Project\\assets\\female\\'
+    for ind, image in enumerate(images):
+        if ind%10 == 0:
+            imsave(save_path+str(x)+".png", image)
+            x=x+1
 
 

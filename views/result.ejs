@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://use.fontawesome.com/fab417e5fd.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js"></script>
+        <script src="navbar.js"></script>
+        <title>Results</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/result.css">
+    </head>
+
+    <body data-spy="scroll" data-target="#ss-nav">
+        <div class="m-p-g">
+            <div class="m-p-g__thumbs abc text-center" data-google-image-layout data-max-height="100">
+                <h1>Results</h1>
+            </div>
+        
+            <div class="m-p-g__fullscreen"></div>
+        </div>
+        <div class="m-p-g">
+            <div class="m-p-g__thumbs" data-google-image-layout data-max-height="250" data-max-width="250">
+                <% if (gend =="0"){ %>
+                    <img src="/male/0.png" class="m-p-g__thumbs-img" />
+                    <p>0-5</p>
+                    <img src="/male/1.png" class="m-p-g__thumbs-img" />
+                    <p>6-10</p>
+                    <img src="/male/2.png" class="m-p-g__thumbs-img" />
+                    <p>11-15</p>
+                    <img src="/male/3.png" class="m-p-g__thumbs-img" />
+                    <p>16-20</p>
+                    <img src="/male/4.png" class="m-p-g__thumbs-img" />
+                    <p>21-30</p>
+                    <img src="/male/5.png" class="m-p-g__thumbs-img" />
+                    <p>31-40</p>
+                    <img src="/male/6.png" class="m-p-g__thumbs-img" />
+                    <p>41-50</p>
+                    <img src="/male/7.png" class="m-p-g__thumbs-img" />
+                    <p>51-60</p>
+                    <img src="/male/8.png" class="m-p-g__thumbs-img" />
+                    <p>61-70</p>
+                    <img src="/male/9.png" class="m-p-g__thumbs-img" />
+                    <p>71-100</p>
+                    
+                <% }
+
+                else{ %>
+                    <img src="/female/0.png" class="m-p-g__thumbs-img" />
+                    <p>0-5</p>
+                    <img src="/female/1.png" class="m-p-g__thumbs-img" />
+                    <p>6-10</p>
+                    <img src="/female/2.png" class="m-p-g__thumbs-img" />
+                    <p>11-15</p>
+                    <img src="/female/3.png" class="m-p-g__thumbs-img" />
+                    <p>16-20</p>
+                    <img src="/female/4.png" class="m-p-g__thumbs-img" />
+                    <p>21-30</p>
+                    <img src="/female/5.png" class="m-p-g__thumbs-img" />
+                    <p>31-40</p>
+                    <img src="/female/6.png" class="m-p-g__thumbs-img" />
+                    <p>41-50</p>
+                    <img src="/female/7.png" class="m-p-g__thumbs-img" />
+                    <p>51-60</p>
+                    <img src="/female/8.png" class="m-p-g__thumbs-img" />
+                    <p>61-70</p>
+                    <img src="/female/9.png" class="m-p-g__thumbs-img" />
+                    <p>71-100</p>
+                <% }%>
+            </div>
+        
+            <div class="m-p-g__fullscreen"></div>
+        </div>
+        
+        <script>
+            var elem = document.querySelector('.m-p-g');
+        
+            document.addEventListener('DOMContentLoaded', function() {
+                var gallery = new MaterialPhotoGallery(elem);
+            });
+        </script>
+            
+            
+          </body>
+          </html>

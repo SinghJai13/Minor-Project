@@ -1,0 +1,54 @@
+
+Graph background black 
+Graph lines grey
+Lat Lng form phone 
+
+How to create various file names ???
+
+
+	Bits to be flipped
+	int count = 0; 
+	n=a^b;	
+  
+
+	while (n) 
+	{ 
+      n=n-(n^(n&(n-1)));
+		//count += n & 1; 
+	//	n >>= 1;
+     count++;
+	} 
+
+count -> Number of on bits in a number
+
+Beastars
+Cautious Hero
+Stars Align
+Oresuki
+Ahiru no Sora
+Fate/Grand Order
+Kabukichou Sherlock
+Babylon
+AND Ascendance of a Bookworm!?
+
+And those are just the Great New shows, let alone the Good new shows such as,
+Kemono Michi: Rise Up
+No Guns Life
+Stand My Heroes: Piece of Truth
+Didn't I Say To Make My Abilities Average In The Next Life
+AND Demon School: Iruma-Kun!?
+
+And Those are just the Good New shows, let alone all the Great Returning shows like,
+My Hero Academia Season 4
+Dr. Stone Second Cour
+Chihayafuru Season 3
+Fire Force Second Cour
+Granblue Fantasy Season 2
+Vinland Saga Second Cour
+High Score Girl Season 2
+AND Psycho-Pass Season 3!?
+
+And even the watered down but still really good sequels like,
+Sword Art Online Season 3
+Shokugeki no Soma Season 4
+AND The Seven Deadly Sins Season 3!

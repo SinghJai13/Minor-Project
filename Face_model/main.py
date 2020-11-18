@@ -1,6 +1,7 @@
 import tensorflow as tf
 from FaceAging import FaceAging
 from os import environ
+import os
 import argparse
 
 environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -25,13 +26,12 @@ parser.add_argument('--use_trained_model', type=str2bool, default=True, help='wh
 parser.add_argument('--use_init_model', type=str2bool, default=True, help='whether train from the init model if cannot find an existing model')
 FLAGS = parser.parse_args()
 
-
 def main(_):
 
     # print settings
     import pprint
     pprint.pprint(FLAGS)
-
+    direc = os.path.abspath(os.getcwd())
     config = tf.compat.v1.ConfigProto()
     config.gpu_options.allow_growth = True
 
@@ -61,7 +61,7 @@ def main(_):
         else:
             print ('\n\tTesting Mode')
             model.custom_test(
-                testing_samples_dir=FLAGS.testdir + '/*jpg'
+                testing_samples_dir=direc + '\\'+FLAGS.testdir + '\\*.jpg'
             )
 
 

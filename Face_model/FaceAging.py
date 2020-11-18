@@ -54,7 +54,7 @@ class FaceAging(object):
         self.is_training = is_training
         self.save_dir = save_dir
         self.dataset_name = dataset_name
-
+        self.direc = os.path.abspath(os.getcwd())
         # ************************************* input to graph ********************************************************
         self.input_image = tf.compat.v1.placeholder(
             tf.float32,
@@ -638,12 +638,15 @@ class FaceAging(object):
     def load_checkpoint(self, model_path=None):
         if model_path is None:
             print("\n\tLoading pre-trained model ...")
-            checkpoint_dir = os.path.join(self.save_dir, 'checkpoint')
-            print(checkpoint_dir)
+            # checkpoint_dir = os.path.join('Face_model',self.save_dir, 'checkpoint')
+            # print(checkpoint_dir)
+            checkpoint_dir ='D:\Downloads\Projects_And_Stuff\Websites\Minor-Project\Face_model\save\checkpoint'
         else:
             print("\n\tLoading init model ...")
             checkpoint_dir = model_path
         checkpoints = tf.train.get_checkpoint_state(checkpoint_dir)
+        print(checkpoint_dir)
+        print(checkpoints)
         if checkpoints and checkpoints.model_checkpoint_path:
             checkpoints_name = os.path.basename(checkpoints.model_checkpoint_path)
             try:
@@ -673,6 +676,60 @@ class FaceAging(object):
             image_value_range=self.image_value_range,
             size_frame=[size_frame, size_frame]
         )
+
+    def test1(self, images, gender,flag, name):
+        test_dir = os.path.join(self.save_dir, 'test')
+        if not os.path.exists(test_dir):
+            os.makedirs(test_dir)
+        #  TO CHANGE:
+        images = images[:int(np.sqrt(self.size_batch)), :, :, :]
+   
+        gender = gender[:int(np.sqrt(self.size_batch)), :]
+        
+        size_sample = images.shape[0]
+        labels = np.arange(size_sample)
+        labels = np.repeat(labels, size_sample)
+        query_labels = np.ones(
+            shape=(size_sample ** 2, size_sample),
+            dtype=np.float32
+        ) * self.image_value_range[0]
+        for i in range(query_labels.shape[0]):
+            query_labels[i, labels[i]] = self.image_value_range[-1]
+        query_images = np.tile(images, [self.num_categories, 1, 1, 1])
+        print("hello")
+        # print(query_images)
+      
+        
+        query_gender = np.tile(gender, [self.num_categories, 1])
+        z, G = self.session.run(
+            [self.z, self.G],
+            feed_dict={
+                self.input_image: query_images,
+                self.age: query_labels,
+                self.gender: query_gender
+            }
+        )
+        
+        save_batch_images(
+            batch_images=query_images,
+            save_path=os.path.join(test_dir, 'input.png'),
+            image_value_range=self.image_value_range,
+            size_frame=[size_sample, size_sample]
+        )
+        save_batch_images1(
+            batch_images=G,
+            save_path=os.path.join(test_dir, name),
+            image_value_range=self.image_value_range,
+            size_frame=[size_sample, size_sample],
+            flag = flag
+        )
+        # save_batch_images(
+        #     batch_images=G,
+        #     save_path=os.path.join(test_dir, name),
+        #     image_value_range=self.image_value_range,
+        #     size_frame=[size_sample, size_sample]
+        # )
+        print("done")
 
     def test(self, images, gender, name):
         test_dir = os.path.join(self.save_dir, 'test')
@@ -713,12 +770,20 @@ class FaceAging(object):
             image_value_range=self.image_value_range,
             size_frame=[size_sample, size_sample]
         )
-        save_batch_images(
+        save_batch_images1(
             batch_images=G,
             save_path=os.path.join(test_dir, name),
             image_value_range=self.image_value_range,
-            size_frame=[size_sample, size_sample]
+            size_frame=[size_sample, size_sample],
+            flag = flag
         )
+        # save_batch_images(
+        #     batch_images=G,
+        #     save_path=os.path.join(test_dir, name),
+        #     image_value_range=self.image_value_range,
+        #     size_frame=[size_sample, size_sample]
+        # )
+        print("done")
 
     def custom_test(self, testing_samples_dir):
         if not self.load_checkpoint():
@@ -729,8 +794,10 @@ class FaceAging(object):
 
         num_samples = int(np.sqrt(self.size_batch))
 #TO CHANGE:
-        # file_names =glob(os.path.join('./test', '*.jpg')) 
-        file_names  = glob(testing_samples_dir)
+        file_names =glob(os.path.join('D:\\Downloads\\Projects_And_Stuff\\Websites\\Minor-Project\\Face_model\\test', '*.jpg')) 
+        # file_names  = glob(testing_samples_dir)
+        print(testing_samples_dir)
+        print(len(file_names))
         if len(file_names) < num_samples:
             print ('The number of testing images is must larger than %d' % num_samples)
             exit(0)
@@ -760,8 +827,8 @@ class FaceAging(object):
             gender_male[i, 0] = self.image_value_range[-1]
             gender_female[i, 1] = self.image_value_range[-1]
 
-        self.test(images, gender_male, 'test_as_male.png')
-        self.test(images, gender_female, 'test_as_female.png')
+        self.test1(images, gender_male,0, 'test_as_male.png')
+        self.test1(images, gender_female,1, 'test_as_female.png')
 
         print ('\n\tDone! Results are saved as %s\n' % os.path.join(self.save_dir, 'test', 'test_as_xxx.png'))
 
